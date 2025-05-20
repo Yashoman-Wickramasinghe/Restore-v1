@@ -6,17 +6,9 @@ export default defineConfig({
   server: {
     port: 3000,
     watch: {
-      usePolling: false, // <-- Only set to true if needed (e.g. WSL, Docker)
-      ignored: [
-        '**/node_modules/**',
-        '**/.git/**',
-        '**/dist/**',
-        '**/bin/**',
-        '**/obj/**',
-        '**/.vs/**',
-        '**/coverage/**',
-        '**/.vscode/**'
-      ]
+      usePolling: true,
+      interval: 1000, // checks for file changes every 1000ms
+      ignored: ['**/node_modules/**', '**/.git/**']
     }
   },
   plugins: [react(), mkcert()]
